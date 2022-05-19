@@ -1,0 +1,110 @@
+﻿<Window x:Class="Langulag.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Langulag"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="720" Width="1280">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="96px"></RowDefinition>
+            <RowDefinition Height="56px"></RowDefinition>
+            <RowDefinition Height="56px"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="72px"></RowDefinition>
+            <RowDefinition Height="48px"></RowDefinition>
+        </Grid.RowDefinitions>
+        <WrapPanel
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            >
+            <Image Height="56px" Width="56px" Margin="0 0 20px 0" Source="/school_logo.ico"/>
+            <TextBlock FontSize="24px" LineHeight="24px" VerticalAlignment="Center">Список клиентов</TextBlock>
+        </WrapPanel>
+        <WrapPanel
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            >
+            <TextBlock Margin="0 0 16px 0" Text="фильтр по полу" VerticalAlignment="Center"/>
+            <ComboBox
+                Margin="16px 0 0 0"
+                Width="100px"
+                />
+            <TextBlock Margin="24px 0 16px 0" Text="сортировка" VerticalAlignment="Center"/>
+            <ComboBox
+                Margin="16px 0 0 0"
+                Width="100px"
+                />
+            <Button Padding="16px 8px" Margin="16px 0 0 0" Content="Очистить фильтры"/>
+        </WrapPanel>
+        <WrapPanel
+            Grid.Row="2"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            >
+            <CheckBox/>
+            <TextBlock FontSize="16px" VerticalAlignment="Center" Text="Дерь рождения в текущем месяце"/>
+            <TextBlock Margin="24px 0 0 0" FontSize="16px" VerticalAlignment="Center" Text="Поиск"/>
+            <TextBox Margin="16px 0 0 0" FontSize="16px" Width="150px"/>
+        </WrapPanel>
+        <WrapPanel
+            Grid.Row="3"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            >
+            <ListView SelectionMode="Multiple">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="100px" Header="ID"/>
+                        <GridViewColumn Width="50px" Header="Гендер"/>
+                        <GridViewColumn Width="150px" Header="Имя"/>
+                        <GridViewColumn Width="150px" Header="Фамилия"/>
+                        <GridViewColumn Width="150px" Header="Отчество"/>
+                        <GridViewColumn Width="150px" Header="Дата рождения"/>
+                        <GridViewColumn Width="100px" Header="Телефон"/>
+                        <GridViewColumn Width="150px" Header="Почта"/>
+                        <GridViewColumn Width="50px" Header="Посещений"/>
+                        <GridViewColumn Width="200px" Header="Теги"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+        </WrapPanel>
+        <WrapPanel
+            Grid.Row="4"
+            VerticalAlignment="Center"
+            HorizontalAlignment="left"
+            >
+            <Button Margin="24px 0 24px 0" Padding="16px 8px" Content="Добавление клиента"/>
+            <Button Padding="16px 8px" Content="Удаление клиента"/>
+        </WrapPanel>
+        <WrapPanel
+            Grid.Row="4"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Right"
+            >
+            <TextBlock Margin="0 0 16px 0" Text="Количество записей" VerticalAlignment="Center"/>
+            <ComboBox
+                Margin="16px 0 0 0"
+                Width="100px"
+                />
+
+
+            <Button Margin="24px 0 0 0" Padding="16px 8px" Content=""/>
+            <TextBlock Margin="16px 0 16px 0" Text="0 из 100" VerticalAlignment="Center"/>
+            <Button Margin="0 0 24px 0" Padding="16px 8px" Content="➟"/>
+        </WrapPanel>
+        <WrapPanel
+            Grid.Row="5"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            >
+            <TextBlock Margin="0 0 24px 0" FontSize="16px" VerticalAlignment="Center">страница:</TextBlock>
+        </WrapPanel>
+    </Grid>
+</Window>
