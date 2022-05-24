@@ -1,7 +1,6 @@
 C:\Users\pushk\source\repos\Langulag\Langulag\bin\Debug\Langulag.exe.config
 C:\Users\pushk\source\repos\Langulag\Langulag\bin\Debug\Langulag.exe
 C:\Users\pushk\source\repos\Langulag\Langulag\bin\Debug\Langulag.pdb
-C:\Users\pushk\source\repos\Langulag\Langulag\obj\Debug\Langulag.csprojAssemblyReference.cache
 C:\Users\pushk\source\repos\Langulag\Langulag\obj\Debug\Windows\MainWindow.g.cs
 C:\Users\pushk\source\repos\Langulag\Langulag\obj\Debug\App.g.cs
 C:\Users\pushk\source\repos\Langulag\Langulag\obj\Debug\Langulag_MarkupCompile.cache
@@ -20,3 +19,5 @@ C:\Users\pushk\source\repos\Langulag\Langulag\bin\Debug\EntityFramework.SqlServe
 C:\Users\pushk\source\repos\Langulag\Langulag\bin\Debug\ru\EntityFramework.resources.dll
 C:\Users\pushk\source\repos\Langulag\Langulag\obj\Debug\Langulag_Content.g.cs
 C:\Users\pushk\source\repos\Langulag\Langulag\obj\Debug\Langulag.csproj.CopyComplete
+C:\Users\pushk\source\repos\Langulag\Langulag\obj\Debug\Langulag.csproj.AssemblyReference.cache
+C:\Users\pushk\source\repos\Langulag\Langulag\obj\Debug\Langulag.csproj.SuggestedBindingRedirects.cache

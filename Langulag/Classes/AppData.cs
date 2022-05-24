@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Langulag.Classes
 {
-    class ClassAppData
+    class AppData
     {
+        public static EF.Entities Context { get; } = new EF.Entities();
     }
 }

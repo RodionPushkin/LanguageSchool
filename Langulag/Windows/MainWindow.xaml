@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Langulag"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1280">
+        Title="MainWindow" Height="720" Width="1280" WindowStartupLocation="CenterScreen" FontFamily="Comic Sans MS">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"></ColumnDefinition>
@@ -32,43 +32,47 @@
             >
             <TextBlock Margin="0 0 16px 0" Text="фильтр по полу" VerticalAlignment="Center"/>
             <ComboBox
+                x:Name="cbFilter"
+                SelectionChanged="cbFilter_SelectionChanged"
                 Margin="16px 0 0 0"
                 Width="100px"
                 />
             <TextBlock Margin="24px 0 16px 0" Text="сортировка" VerticalAlignment="Center"/>
             <ComboBox
+                x:Name="cbSort"
+                SelectionChanged="cbSort_SelectionChanged"
                 Margin="16px 0 0 0"
                 Width="100px"
                 />
-            <Button Padding="16px 8px" Margin="16px 0 0 0" Content="Очистить фильтры"/>
+            <Button Click="Button_Click" Padding="16px 8px" Margin="16px 0 0 0" Content="Очистить фильтры"/>
         </WrapPanel>
         <WrapPanel
             Grid.Row="2"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             >
-            <CheckBox/>
+            <CheckBox x:Name="cbBirthday" Checked="cbBirthday_Checked" Unchecked="cbBirthday_Checked"/>
             <TextBlock FontSize="16px" VerticalAlignment="Center" Text="Дерь рождения в текущем месяце"/>
             <TextBlock Margin="24px 0 0 0" FontSize="16px" VerticalAlignment="Center" Text="Поиск"/>
-            <TextBox Margin="16px 0 0 0" FontSize="16px" Width="150px"/>
+            <TextBox x:Name="tbSearch" TextChanged="tbSearch_TextChanged" Margin="16px 0 0 0" FontSize="16px" Width="150px"/>
         </WrapPanel>
         <WrapPanel
             Grid.Row="3"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             >
-            <ListView SelectionMode="Multiple">
+            <ListView x:Name="lvClient" SelectionMode="Multiple">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Width="100px" Header="ID"/>
-                        <GridViewColumn Width="50px" Header="Гендер"/>
-                        <GridViewColumn Width="150px" Header="Имя"/>
-                        <GridViewColumn Width="150px" Header="Фамилия"/>
-                        <GridViewColumn Width="150px" Header="Отчество"/>
-                        <GridViewColumn Width="150px" Header="Дата рождения"/>
-                        <GridViewColumn Width="100px" Header="Телефон"/>
-                        <GridViewColumn Width="150px" Header="Почта"/>
-                        <GridViewColumn Width="50px" Header="Посещений"/>
+                        <GridViewColumn Width="100px" DisplayMemberBinding="{Binding ID}"  Header="ID"/>
+                        <GridViewColumn Width="50px" DisplayMemberBinding="{Binding ClientGender}" Header="Гендер"/>
+                        <GridViewColumn Width="150px" DisplayMemberBinding="{Binding FirstName}" Header="Имя"/>
+                        <GridViewColumn Width="150px" DisplayMemberBinding="{Binding SecondName}" Header="Фамилия"/>
+                        <GridViewColumn Width="150px" DisplayMemberBinding="{Binding Patronymic}" Header="Отчество"/>
+                        <GridViewColumn Width="150px" DisplayMemberBinding="{Binding DateOfBirth}" Header="Дата рождения"/>
+                        <GridViewColumn Width="100px" DisplayMemberBinding="{Binding Phone}" Header="Телефон"/>
+                        <GridViewColumn Width="150px" DisplayMemberBinding="{Binding Email}" Header="Почта"/>
+                        <GridViewColumn Width="50px" DisplayMemberBinding="{Binding LastVisit}" Header="Посещений"/>
                         <GridViewColumn Width="200px" Header="Теги"/>
                     </GridView>
                 </ListView.View>
@@ -90,21 +94,23 @@
             >
             <TextBlock Margin="0 0 16px 0" Text="Количество записей" VerticalAlignment="Center"/>
             <ComboBox
+                x:Name="cbPage"
+                SelectionChanged="cbPage_SelectionChanged"
                 Margin="16px 0 0 0"
                 Width="100px"
                 />
 
 
-            <Button Margin="24px 0 0 0" Padding="16px 8px" Content=""/>
-            <TextBlock Margin="16px 0 16px 0" Text="0 из 100" VerticalAlignment="Center"/>
-            <Button Margin="0 0 24px 0" Padding="16px 8px" Content="➟"/>
+            <Button Click="Button_Click_1" Margin="24px 0 0 0" Padding="16px 8px" Content="🠈"/>
+            <TextBlock x:Name="tbCount" Margin="16px 0 16px 0" Text="0 из 100" VerticalAlignment="Center"/>
+            <Button Click="Button_Click_2" Margin="0 0 24px 0" Padding="16px 8px" Content="🠊"/>
         </WrapPanel>
         <WrapPanel
             Grid.Row="5"
             HorizontalAlignment="Right"
             VerticalAlignment="Center"
             >
-            <TextBlock Margin="0 0 24px 0" FontSize="16px" VerticalAlignment="Center">страница:</TextBlock>
+            <TextBlock x:Name="tbPageNumber" Margin="0 0 24px 0" FontSize="16px" VerticalAlignment="Center"></TextBlock>
         </WrapPanel>
     </Grid>
 </Window>
