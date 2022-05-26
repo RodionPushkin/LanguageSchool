@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\pushk\source\repos\Langulag\Langulag\obj\Debug\
+C:\projects\c#\LanguageSchool\Langulag\obj\Debug\
 Langulag
 none
 false
 DEBUG;TRACE
-C:\Users\pushk\source\repos\Langulag\Langulag\App.xaml
-12061826496
+C:\projects\c#\LanguageSchool\Langulag\App.xaml
+4502027427
 2-1080765
-211932289245
-18-370750253
-Windows\MainWindow.xaml;
+24514835002
+18942586025
+Windows\AddClientWindow.xaml;Windows\DeleteClientWindow.xaml;Windows\MainWindow.xaml;Windows\UpdateClientWindow.xaml;
 
 True
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Langulag.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,12 +41,12 @@ namespace Langulag
             "100"
         };
         int currentPage = 1;
-
         public MainWindow()
         {
             InitializeComponent();
             Clear();
         }
+
         private void Filter()
         {
             switch (cbFilter.SelectedIndex)
@@ -66,7 +67,7 @@ namespace Langulag
         }
         private void Sort()
         {
-            switch(cbSort.SelectedIndex)
+            switch (cbSort.SelectedIndex)
             {
                 case 0:
                     listClient = listClient.OrderBy(i => i.ID).ToList();
@@ -80,7 +81,7 @@ namespace Langulag
                 case 3:
                     listClient = listClient.OrderBy(i => i.qtyOfVisits).ToList();
                     break;
-                default: 
+                default:
                     listClient = listClient.OrderBy(i => i.ID).ToList();
                     break;
             }
@@ -97,16 +98,18 @@ namespace Langulag
             {
                 listClient = listClient.Where(i => i.DateOfBirth == DateTime.Now).ToList();
             }
+
         }
         private void Pagination()
         {
-            if(cbPage.SelectedIndex != -1 && currentPage <= Math.Ceiling(Convert.ToDouble(Classes.AppData.Context.Client.ToList().Count) / Convert.ToDouble(cbPage.SelectedItem.ToString())))
+            if (cbPage.SelectedIndex != -1 && currentPage <= Math.Ceiling(Convert.ToDouble(Classes.AppData.Context.Client.ToList().Count) / Convert.ToDouble(cbPage.SelectedItem.ToString())))
             {
+                string listClientBefore = listClient.Count.ToString();
                 if (currentPage <= 1)
                 {
                     listClient = listClient.Take(Convert.ToInt32(cbPage.SelectedItem.ToString())).ToList();
                 }
-                else if(Convert.ToInt32(cbPage.SelectedItem.ToString()) * (currentPage - 1) + Convert.ToInt32(cbPage.SelectedItem.ToString()) <= Classes.AppData.Context.Client.ToList().Count)
+                else if (Convert.ToInt32(cbPage.SelectedItem.ToString()) * (currentPage - 1) + Convert.ToInt32(cbPage.SelectedItem.ToString()) <= Classes.AppData.Context.Client.ToList().Count)
                 {
                     listClient = listClient.Skip(Convert.ToInt32(cbPage.SelectedItem.ToString()) * (currentPage - 1)).Take(Convert.ToInt32(cbPage.SelectedItem.ToString())).ToList();
                 }
@@ -114,6 +117,7 @@ namespace Langulag
                 {
                     listClient = listClient.Skip(Convert.ToInt32(cbPage.SelectedItem.ToString()) * (currentPage - 1)).ToList();
                 }
+                tbCount.Text = listClient.Count.ToString() + " из " + listClientBefore;
             }
         }
         private void UpdateData()
@@ -122,8 +126,7 @@ namespace Langulag
             Filter();
             Sort();
             Pagination();
-            tbPageNumber.Text = "страница: "+currentPage;
-            tbCount.Text = listClient.Count.ToString() + " из " + Classes.AppData.Context.Client.ToList().Count.ToString();
+            tbPageNumber.Text = "страница: " + currentPage;
             lvClient.ItemsSource = listClient;
         }
         private void Clear()
@@ -136,11 +139,13 @@ namespace Langulag
             cbPage.SelectedIndex = 0;
             cbBirthday.IsChecked = false;
             tbSearch.Text = "";
+            currentPage = 1;
             lvClient.ItemsSource = listClient;
             UpdateData();
         }
         private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
+            currentPage = 1;
             UpdateData();
         }
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -150,11 +155,13 @@ namespace Langulag
 
         private void cbSort_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            currentPage = 1;
             UpdateData();
         }
 
         private void cbFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            currentPage = 1;
             UpdateData();
         }
 
@@ -175,7 +182,7 @@ namespace Langulag
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            if (currentPage < Math.Ceiling(Convert.ToDouble(Classes.AppData.Context.Client.ToList().Count) / Convert.ToDouble(cbPage.SelectedItem.ToString())))
+            if (currentPage < Math.Ceiling(Convert.ToDouble(Classes.AppData.Context.Client.ToList().Count) / Convert.ToDouble(cbPage.SelectedItem.ToString())) && listClient.Count == Convert.ToInt32(cbPage.SelectedItem.ToString()))
             {
                 currentPage++;
                 UpdateData();
@@ -184,7 +191,20 @@ namespace Langulag
 
         private void cbBirthday_Checked(object sender, RoutedEventArgs e)
         {
+            currentPage = 1;
             UpdateData();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            AddClientWindow addClientWindow = new AddClientWindow();
+            addClientWindow.ShowDialog();
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            DeleteClientWindow deleteClientWindow = new DeleteClientWindow();
+            deleteClientWindow.ShowDialog();
         }
     }
 }
