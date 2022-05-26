@@ -203,8 +203,21 @@ namespace Langulag
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            DeleteClientWindow deleteClientWindow = new DeleteClientWindow();
-            deleteClientWindow.ShowDialog();
+            if (lvClient.SelectedItem != null)
+            {
+                // передать выбраный элемент листа в удаление
+                MessageBox.Show(lvClient.SelectedItem.ToString());
+            }
+        }
+
+        private void lvClient_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (lvClient.SelectedItem != null)
+            {
+                // передать выбраный элемент листа в окно
+                UpdateClientWindow updateClientWindow = new UpdateClientWindow();
+                updateClientWindow.ShowDialog();
+            }
         }
     }
 }

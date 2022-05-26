@@ -45,8 +45,6 @@ C:\projects\c#\LanguageSchool\Langulag\obj\Debug\Langulag.csproj.CopyComplete
 C:\projects\c#\LanguageSchool\Langulag\obj\Debug\Langulag.exe
 C:\projects\c#\LanguageSchool\Langulag\obj\Debug\Langulag.pdb
 C:\projects\c#\LanguageSchool\Langulag\obj\Debug\Windows\AddClientWindow.g.cs
-C:\projects\c#\LanguageSchool\Langulag\obj\Debug\Windows\DeleteClientWindow.g.cs
 C:\projects\c#\LanguageSchool\Langulag\obj\Debug\Windows\UpdateClientWindow.g.cs
 C:\projects\c#\LanguageSchool\Langulag\obj\Debug\Windows\AddClientWindow.baml
-C:\projects\c#\LanguageSchool\Langulag\obj\Debug\Windows\DeleteClientWindow.baml
 C:\projects\c#\LanguageSchool\Langulag\obj\Debug\Windows\UpdateClientWindow.baml

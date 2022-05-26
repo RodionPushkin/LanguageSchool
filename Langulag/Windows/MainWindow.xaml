@@ -61,7 +61,7 @@
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             >
-            <ListView x:Name="lvClient" SelectionMode="Multiple">
+            <ListView MouseDoubleClick="lvClient_MouseDoubleClick" x:Name="lvClient" SelectionMode="Multiple">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Width="100px" DisplayMemberBinding="{Binding ID}"  Header="ID"/>
@@ -84,8 +84,8 @@
             VerticalAlignment="Center"
             HorizontalAlignment="left"
             >
-            <Button Margin="24px 0 24px 0" Padding="16px 8px" Content="Добавление клиента"/>
-            <Button Padding="16px 8px" Content="Удаление клиента"/>
+            <Button Click="Button_Click_3" Margin="24px 0 24px 0" Padding="16px 8px" Content="Добавление клиента"/>
+            <Button Click="Button_Click_4" Padding="16px 8px" Content="Удаление клиента"/>
         </WrapPanel>
         <WrapPanel
             Grid.Row="4"
