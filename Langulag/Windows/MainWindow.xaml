@@ -54,14 +54,14 @@
             <CheckBox x:Name="cbBirthday" Checked="cbBirthday_Checked" Unchecked="cbBirthday_Checked"/>
             <TextBlock FontSize="16px" VerticalAlignment="Center" Text="Дерь рождения в текущем месяце"/>
             <TextBlock Margin="24px 0 0 0" FontSize="16px" VerticalAlignment="Center" Text="Поиск"/>
-            <TextBox x:Name="tbSearch" TextChanged="tbSearch_TextChanged" Margin="16px 0 0 0" FontSize="16px" Width="150px"/>
+            <TextBox x:Name="tbSearch" TextChanged="tbSearch_TextChanged" MaxLength="150" Margin="16px 0 0 0" FontSize="16px" Width="150px"/>
         </WrapPanel>
         <WrapPanel
             Grid.Row="3"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             >
-            <ListView MouseDoubleClick="lvClient_MouseDoubleClick" x:Name="lvClient">
+            <ListView MouseDoubleClick="lvClient_MouseDoubleClick" x:Name="lvClient" SelectionChanged="lvClient_SelectionChanged">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Width="100px" DisplayMemberBinding="{Binding ID}"  Header="ID"/>
@@ -85,7 +85,7 @@
             HorizontalAlignment="left"
             >
             <Button Click="Button_Click_3" Margin="24px 0 24px 0" Padding="16px 8px" Content="Добавление клиента"/>
-            <Button Click="Button_Click_4" Padding="16px 8px" Content="Удаление клиента"/>
+            <Button Click="Button_Click_4" Padding="16px 8px" Content="Удаление клиента" x:Name="btnDelete" Visibility="Hidden"/>
         </WrapPanel>
         <WrapPanel
             Grid.Row="4"

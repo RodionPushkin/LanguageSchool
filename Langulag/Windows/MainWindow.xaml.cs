@@ -205,8 +205,34 @@ namespace Langulag
         {
             if (lvClient.SelectedItem != null)
             {
-                // передать выбраный элемент листа в удаление
-                MessageBox.Show(lvClient.SelectedItem.ToString());
+                var resClick = MessageBox.Show("Удалить пользователя?", "Удаление", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (resClick == MessageBoxResult.No)
+                {
+                    return;
+                }
+                try
+                {
+                    if (lvClient.SelectedItem is EF.Client)
+                    {
+                        var client = lvClient.SelectedItem as EF.Client;
+                        if(Classes.AppData.Context.ClientService.Where(i => i.IDClient == client.ID).ToList().Count == 0)
+                        {
+                            Classes.AppData.Context.Client.Remove(client);
+                            Classes.AppData.Context.SaveChanges();
+                            UpdateData();
+                            MessageBox.Show("Пользователь успешно удален", "Готово", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Пользователь не удален так как он уже пользовался услугами", "Готово", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
@@ -217,6 +243,18 @@ namespace Langulag
                 // передать выбраный элемент листа в окно
                 UpdateClientWindow updateClientWindow = new UpdateClientWindow();
                 updateClientWindow.ShowDialog();
+            }
+        }
+
+        private void lvClient_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lvClient.SelectedItem != null)
+            {
+                btnDelete.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                btnDelete.Visibility = Visibility.Hidden;
             }
         }
     }
