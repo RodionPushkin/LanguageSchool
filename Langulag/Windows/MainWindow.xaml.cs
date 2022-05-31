@@ -96,7 +96,7 @@ namespace Langulag
             ).ToList();
             if (cbBirthday.IsChecked == true)
             {
-                listClient = listClient.Where(i => i.DateOfBirth == DateTime.Now).ToList();
+                listClient = listClient.Where(i => i.DateOfBirth.Month == DateTime.Now.Month).ToList();
             }
 
         }

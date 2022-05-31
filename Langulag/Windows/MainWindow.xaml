@@ -61,7 +61,7 @@
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             >
-            <ListView MouseDoubleClick="lvClient_MouseDoubleClick" x:Name="lvClient" SelectionMode="Multiple">
+            <ListView MouseDoubleClick="lvClient_MouseDoubleClick" x:Name="lvClient">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Width="100px" DisplayMemberBinding="{Binding ID}"  Header="ID"/>
